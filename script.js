@@ -103,7 +103,7 @@ async function displayCartItems() {
   
     
       const deleteButton = document.createElement("button");
-      deleteButton.setAttribute("class", "buttonWithoutBorders");
+      deleteButton.setAttribute("class", "buttonWithoutBorders deleteButtonClass");
       deleteButton.setAttribute("onclick", "deleteItem(this)");
       const deleteButtonIcon = document.createElement("span");
       deleteButtonIcon.setAttribute("class", "material-symbols-outlined");
@@ -156,7 +156,7 @@ async function displayCartItems() {
   totalSum.setAttribute("class", "alignTableRowToRight")
   const purchaseButton = document.createElement("button")
   purchaseButton.textContent = "Purchase"
-  purchaseButton.setAttribute("onclick", completePurchase);
+  //purchaseButton.setAttribute("onclick", completePurchase);
   purchaseButton.setAttribute("type", "button");
   purchaseButton.setAttribute("class", "btn btn-outline-secondary purchaseButtonClass");
   purchaseButton.setAttribute("onclick", "completePurchase()");
@@ -164,6 +164,13 @@ async function displayCartItems() {
   totalLabel.innerHTML = "Total:"
   totalSum.innerHTML = "#"
   purchase.appendChild(purchaseButton);
+
+
+  /*const removeAllButton = document.createElement("button");
+  removeAllButton.textContent = "Clear cart";
+  removeAllButton.setAttribute("class", "btn btn-outline-secondary removeAllButtonClass");
+  removeAllButton.setAttribute("onclick", "emptyCart()");*/
+
 
   updateTotalAmount();
 } 
@@ -210,13 +217,11 @@ function updateTotalAmount () {
   const arrayOfRows = table.querySelectorAll("tr");
   amountOfCartItems = [];
 
-
   arrayOfRows.forEach(row => {
-
     const editCellElement = row.querySelector(".editCell");
 
     if (editCellElement != undefined) {
-      
+    
       const priceElement = row.querySelector(".productPrices");
       const individualPrice = row.querySelector(".individualProductPrices").innerHTML;
       const amountOfItem = editCellElement.querySelector(".itemAmount").innerHTML;
@@ -228,9 +233,27 @@ function updateTotalAmount () {
     }
     
   });
+
   arrayOfRows[arrayOfRows.length-1].querySelector("#showTotalSum").innerHTML = totalSumOfItems.toFixed(2);
   saveCartInLocalStorage();
+}
 
+
+function emptyCart() {
+  const table = document.getElementById("itemsInCartTable");
+  const arrayOfRows = table.querySelectorAll("tr");
+
+  arrayOfRows.forEach(row => {
+    const editCellElement = row.querySelector(".editCell");
+
+    if (editCellElement != undefined) {
+      const deleteButtonOfRow = editCellElement.querySelector(".deleteButtonClass");
+      deleteItem(deleteButtonOfRow);
+    }
+    
+  });
+  cartItems = [];
+  
 }
 
 function completePurchase() {
@@ -241,9 +264,4 @@ function completePurchase() {
     window.location.href = 'confirmation.html';
     localStorage.clear();
   }
-
-  
-
-
 }
-

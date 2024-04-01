@@ -1,0 +1,99 @@
+#topHeaderWithRecs {
+    text-align: center;
+    font-size: x-small;
+    background-color: #ced4da;
+}
+
+#headLogoTopOfWebpage {
+    text-align: center;
+    font-size: 3em;
+    font-variant-caps: all-small-caps;
+}
+
+@media (min-width: 992px) {
+  .navbar-collapse {
+    margin-left: -80px;
+  }
+}
+
+.card-text{
+  padding-top: 10px;
+}
+
+.about-us-div{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.about-us{
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.about-us-text{
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+.custom-card {
+  width: 100%;
+  height: 100%;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.card-img-top {
+  margin-bottom: auto;
+  margin-top: auto;
+}
+
+img.ikon{
+    width: 20px; height: auto
+} 
+
+.socialMediaLink {
+    text-decoration: none;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+}
+#shoppingCart {
+  text-align: right;
+  
+}
+#amountOfItemsInCart {
+  font-size: larger;
+}
+#changeAmountInCart {
+  font-size: smaller;
+}
+.buttonWithoutBorders {
+  border-style: hidden;
+  background-color: transparent;
+
+}
+
+.alignTableRowToRight {
+  text-align: right;
+}
+
+.purchaseButtonClass {
+  padding:0px;
+  
+
+}
+
+#confirmationText {
+  text-align: center;
+  padding:2em;
+}
